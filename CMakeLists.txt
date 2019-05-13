@@ -40,7 +40,7 @@ set_target_properties(editor homework_test
 PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
-    COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra;--std=c++17;"
+    COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra;--std=c++17;-lstdc++fs"
 #    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
@@ -59,7 +59,7 @@ PROPERTIES
 target_link_libraries(homework_test
     ${GTEST_LIBRARIES}
     Threads::Threads
-    stdc++fs
+#    stdc++fs
 )
 
 #Install
