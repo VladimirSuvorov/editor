@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 #Project config
-set(PROJECT_NAME "print_ip")
+set(PROJECT_NAME "editor")
 if(DEFINED ENV{TRAVIS_BUILD_NUMBER})
   project(${PROJECT_NAME} VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else()
@@ -30,13 +30,13 @@ include_directories(
 #configure_file(version.h.in version.h)
 
 #Targets
-add_executable(print_ip Source.cpp)
+add_executable(editor Source.cpp)
 add_executable(homework_test tests.cpp)
 
 
 
 #Compilation setings
-set_target_properties(print_ip homework_test
+set_target_properties(editor homework_test
 PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
@@ -51,7 +51,7 @@ PROPERTIES
 
 
 #Linking
-#target_link_libraries(allocator
+#target_link_libraries(editor
 #    ${Boost_LIBRARIES}
 #)
 
@@ -62,13 +62,13 @@ target_link_libraries(homework_test
 )
 
 #Install
-install(TARGETS print_ip RUNTIME DESTINATION bin)
+install(TARGETS editor RUNTIME DESTINATION bin)
 #CPack
 set (CPACK_GENERATOR DEB)
 
 #set (CPACK_DEB_COMPONENT_INSTALL ON)
 #set (CPACK_DEBIAN_ENABLE_COMPONENT_DEPENDS ON)
-#set (CPACK_DEBIAN_PROG_PACKAGE_DEPENDS print_ip-lib)
+#set (CPACK_DEBIAN_PROG_PACKAGE_DEPENDS editor-lib)
 #set (CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 set (CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
