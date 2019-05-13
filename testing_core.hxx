@@ -1,6 +1,7 @@
 #ifndef GRAPHICS_EDITOR_PROJECT_TESTING_CORE_HXX
 #include <vector>
 #include <algorithm>
+#include <gtest/gtest.h>
 #include "Editor.hpp"
 #define GRAPHICS_EDITOR_PROJECT_TESTING_CORE_HXX
 
@@ -175,4 +176,10 @@ bool is_controller_correct() {
 
 
 
+
+int main(int argc, char *argv[])
+{
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}
 #endif // !GRAPHICS_EDITOR_PROJECT_TESTING_CORE_HXX
