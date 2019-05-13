@@ -1,5 +1,5 @@
 #ifndef GRAPHICS_EDITOR_PROJECT_UTILITIES_HPP
-#include <filesystem>
+#include <string_view>
 #define GRAPHICS_EDITOR_PROJECT_UTILITIES_HPP
 namespace editor_project {
 	namespace utilities {
@@ -55,7 +55,7 @@ namespace editor_project {
 			T* ptr_ = nullptr;
 		};
 
-		using filepath_t = std::filesystem::path;
+		using filepath_t = std::string_view;
 
 		//An interface type should be wrapped into a somelike a pointer type. What the wrapper is used defined by the following alias.
 		template<typename T>
