@@ -59,6 +59,7 @@ PROPERTIES
 target_link_libraries(homework_test
     ${GTEST_LIBRARIES}
     Threads::Threads
+    stdc++fs
 )
 
 #Install
