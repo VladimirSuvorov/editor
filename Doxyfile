@@ -1,0 +1,4 @@
+FILE_PATTERNS = *.cpp *.hpp *.hxx *.h
+OUTPUT_DIRECTORY = .
+EXTRACT_ALL = YES
+HAVE_DOT = YES
