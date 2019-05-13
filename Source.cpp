@@ -1,7 +1,5 @@
-
 #include <vector>
 #include "Editor.hpp"
-#include "testing_core.hxx"
 #include "ImplementationDetails.inl"
 
 using editor_project::utilities::filepath_t;
