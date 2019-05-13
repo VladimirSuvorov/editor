@@ -1,0 +1,43 @@
+language: cpp
+dist: xenial
+addons:
+  apt:
+    update: true
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-8
+      - libgtest-dev
+#      - libboost-all-dev
+      - doxygen
+      - build-essential
+      - cmake
+before_install:
+- export CC=gcc-8
+- export CXX=g++-8
+before_script:
+- pushd /usr/src/gtest
+- sudo cmake .
+- sudo cmake --build . -- -j "`nproc`"
+- sudo cp *.a /usr/lib
+- popd
+script:
+- cmake -D BUILD_TYPE_RELEASE=ON .
+- cmake --build . -- -j "`nproc`"
+- cmake --build . --target test -- -j "`nproc`"
+- cmake --build . --target package -- -j "`nproc`"
+- doxygen
+deploy:
+  - provider: script
+    skip_cleanup: true
+    #debug: on
+    script: 
+    - curl -T editor-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uvladimirsuvorov:$BINTRAY_API_KEY "https://api.bintray.com/content/vladimirsuvorov/otus-cpp/editor/$TRAVIS_BUILD_NUMBER/editor-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
+  - provider: pages
+    local-dir: html
+    skip_cleanup: true
+    github-token: "$Doxygen_tocken"
+    keep_history: false
+    verbose: true
+    on:
+      branch: master
