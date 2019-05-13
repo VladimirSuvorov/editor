@@ -50,6 +50,4 @@ int main(int argc, char *argv[]) {
 	auto primitive = makePrimitive(deditor);
 	removePrimitive(deditor, primitive);
 	saveDocument(deditor, "file.out");
-
-	system("PAUSE");
 }
