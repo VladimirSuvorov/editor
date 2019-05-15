@@ -46,7 +46,7 @@
 //	Editor<demo_editor_traits_t> deditor(&documentFactory, &graphicsFactory); //<--4
 //
 //		Let me explain how does it workes.
-//		At point 1 you instantiate DemoEditorTraits with int as a graphics primitive and float as a container for the primitive.
+//		At point 1 you instantiate DemoEditorTraits with int as a graphics primitive and std::vector<int> as a container for the primitive.
 //		Despite that int is not a graphics primitive, we will assume that it is and you're not going to be mad ;).
 //		At the paragraph 2, you extract the required types from DemoEditorTraits you've instantiated before to use these types at paragraph 3.
 //		(You should do so, to simplify your life, cos it is guaranteed,
